@@ -1,0 +1,125 @@
+:root{
+  --bg:#fafbfe;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#7b68ee;
+  --accent-2:#4caf50;
+  --panel:#fbfbfd;
+}
+
+/* App layout */
+*{box-sizing:border-box}
+body,html,#root{height:100%}
+body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:#111}
+
+.app-container{
+  display:flex;
+  gap:16px;
+  height:100vh;
+  padding:18px;
+  align-items:stretch;
+}
+
+/* Main dashboard */
+.dashboard{
+  flex: 1.9;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  overflow:auto;
+  padding-right:8px;
+}
+
+.top-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+.top-header h1{margin:0;font-size:28px}
+.subtitle{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+.controls-row{display:flex;align-items:center;gap:12px;margin-top:6px}
+.filter select{padding:6px;border-radius:6px;border:1px solid #ddd;background:white}
+.filter label{font-size:14px;color:#333}
+.actions{margin-left:auto}
+
+/* Cards */
+.cards{display:flex;gap:12px;margin-top:6px}
+.card{flex:1;background:var(--card);padding:16px;border-radius:10px;box-shadow:0 2px 6px rgba(14,20,30,0.04);min-width:160px}
+.card h4{margin:0 0 8px 0;font-weight:600;font-size:14px}
+.card-value{font-size:16px;color:#111;margin-top:8px}
+.card-value.small{font-size:13px;color:var(--muted)}
+
+/* charts */
+.charts{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.chart-card{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 2px 6px rgba(14,20,30,0.04)}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.chart-header h3{margin:0;font-size:16px}
+.chart-help{font-size:12px;color:var(--muted)}
+
+.chart-body{min-height:240px;display:flex;align-items:center;justify-content:center}
+.loader{padding:24px;color:var(--muted)}
+
+/* Footer note */
+.footer-note{color:var(--muted);font-size:12px;margin-top:6px}
+
+/* chat panel */
+.chat-panel{
+  width:400px;
+  background:var(--panel);
+  border-left:1px solid #e6e7ea;
+  padding:14px;
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  height:calc(100vh - 36px);
+  overflow:hidden;
+}
+
+.chat-title h3{margin:0;font-size:16px}
+.chat-subtitle{font-size:12px;color:var(--muted)}
+
+.chat-suggestions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip{background:#fff;border:1px solid #e3e4e8;padding:6px 10px;border-radius:999px;font-size:13px;cursor:pointer}
+.chip:hover{background:#f6f7ff}
+
+/* chat messages */
+.chat-messages{
+  flex:1;
+  overflow:auto;
+  padding:8px;
+  border-radius:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,252,0.95));
+  border:1px solid #f0f0f2;
+}
+
+/* bubbles */
+.chat-bubble{margin-bottom:10px;padding:10px;border-radius:8px;max-width:100%;box-shadow:0 1px 1px rgba(10,10,20,0.02)}
+.chat-user{background:#e8f4ff;align-self:flex-end;border:1px solid rgba(20,110,255,0.06)}
+.chat-bot{background:#f3f3f5;align-self:flex-start;border:1px solid rgba(10,10,20,0.03)}
+.bubble-meta{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.source-tag{background:#111;color:white;padding:3px 6px;border-radius:6px;font-size:11px;margin-left:8px;opacity:0.85}
+.bubble-text{font-size:13px;color:#111}
+.bubble-link a{color:#0456d6;text-decoration:underline;font-size:13px}
+
+/* input row */
+.chat-input-row{display:flex;gap:8px;align-items:flex-end;margin-top:6px}
+.chat-input{flex:1;padding:8px;border-radius:8px;border:1px solid #e3e4e8;background:white;min-height:36px;resize:vertical;font-size:13px}
+.chat-controls{display:flex;align-items:center;gap:8px}
+.search-toggle{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.btn{background:var(--accent);color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.small{padding:6px 10px;font-size:13px}
+.btn[disabled]{opacity:0.6;cursor:not-allowed}
+
+/* Responsive / mobile */
+@media (max-width: 1000px) {
+  .app-container{flex-direction:column;padding:12px}
+  .chat-panel{position:fixed;right:12px;bottom:20px;width:360px;height:420px;border-radius:10px;z-index:1100;display:flex;box-shadow:0 20px 60px rgba(10,10,30,0.12)}
+  .dashboard{padding-bottom:480px}
+}
+
+/* subtle improvements */
+select{border-radius:8px;padding:6px 8px}
+small{font-size:12px;color:var(--muted)}
