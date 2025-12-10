@@ -1,3 +1,6 @@
+## About
+**_Emissions Dashboard_** is a full-stack web application that visualizes greenhouse-gas emissions across different sectors and years. It includes interactive filters, summary metrics, bar and line charts, and a built-in chat panel. The chat panel intelligently answers questions by using both the dashboard’s internal dataset and live external API calls for global/India-based climate information.
+
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b1007e6d-7dce-4308-9a39-ab0e1ef3bae1" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e9819572-cd67-453b-b32f-c91937cad464" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/d07813f8-94b1-4cda-882b-a9c748a1a9c4" />
