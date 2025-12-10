@@ -9,8 +9,17 @@
 
 /* App layout */
 *{box-sizing:border-box}
-body,html,#root{height:100%}
-body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:var(--bg);color:#111}
+body,html,#root{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:#111
+}
 
 .app-container{
   display:flex;
@@ -158,6 +167,8 @@ body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:v
   gap:8px;
   height:calc(100vh - 36px);
   overflow:hidden;
+  right: 24px;
+  bottom: 16px;
 }
 .chat-title h3{
   margin:0;
@@ -279,21 +290,20 @@ body{margin:0;font-family:Inter,Segoe UI,Helvetica,Arial,sans-serif;background:v
 }
 
 /* Responsive / mobile */
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
   .app-container{
     flex-direction:column;
     padding:12px
   }
   .chat-panel{
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+    height: 48vh;
+    max-height: 70vh;
+    border-radius: 12px;
     position:fixed;
-    right:12px;
-    bottom:20px;
-    width:360px;
-    height:420px;
-    border-radius:10px;
-    z-index:1100;
-    display:flex;
-    box-shadow:0 20px 60px rgba(10,10,30,0.12)
   }
   .dashboard{
     padding-bottom:480px

@@ -290,7 +290,7 @@ export default function App() {
 
       <aside className="chat-panel" aria-live="polite">
         <div className="chat-title">
-          <h3>Chat about emissions</h3>
+          <h3>Chat Panel</h3>
           <div className="chat-subtitle">Ask about this dashboard or request web insights</div>
         </div>
 
