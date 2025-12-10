@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import "./App.css";
 
-const BACKEND_URL = "http://localhost:5000"; // keep same as your existing file
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 function numberOrZero(v) {
   return typeof v === "number" ? v : 0;
@@ -90,15 +90,12 @@ export default function App() {
         const years = meta.years;
         const arr = [];
         for (const y of years) {
-          // call the same endpoint you already use for emissions
           const res = await axios.get(`${BACKEND_URL}/api/emissions`, { params: { year: y } });
           const rows = res.data || [];
-          // sum all sector values for that year
           const total = rows.reduce((s, it) => s + (typeof it.value === 'number' ? it.value : Number(it.value || 0)), 0);
           arr.push({ year: y, total });
         }
         setLineData(arr);
-        // Dev log so you can confirm
         console.log("lineData built:", arr);
       } catch (err) {
         console.error("Error building lineData:", err);
@@ -107,7 +104,6 @@ export default function App() {
     };
     buildLineData();
   }, [meta]);
-
 
   useEffect(() => {
     async function load() {
@@ -163,7 +159,6 @@ export default function App() {
 
     try {
       if (internetSearch) {
-        // call backend search endpoint (your backend should expose /api/search or /api/chat handles internet flag)
         const resp = await axios.get(`${BACKEND_URL}/api/search`, { params: { q: message } });
         const items = resp.data.results || [];
         if (items.length === 0) {
