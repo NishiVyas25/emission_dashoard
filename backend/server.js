@@ -172,7 +172,7 @@ app.post('/api/chat', async (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '..', 'emissions-frontend', 'build');
   app.use(express.static(buildPath));
-  app.get('*', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
   });
 }
