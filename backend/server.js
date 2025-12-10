@@ -170,7 +170,7 @@ app.post('/api/chat', async (req, res) => {
 
 // --- Serve React build in production (optional)
 if (process.env.NODE_ENV === 'production') {
-  const buildPath = path.join(__dirname, '..', 'emissions-frontend', 'build');
+  const buildPath = path.join(__dirname, '..', 'frontend', 'emissions-frontend', 'build');
   app.use(express.static(buildPath));
   app.get('/*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
